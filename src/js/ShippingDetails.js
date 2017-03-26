@@ -63,7 +63,7 @@ var ShippingDetails = React.createClass({
                             <input type="text"
                                    placeholder="Full Name"
                                    value={this.state.fullName}
-                                   onChange={this.handleChange(event,'fullName')} />
+                                   onChange={(event) => this.handleChange(event,'fullName')} />
                         </div>
                         <div className="form-group">
                             <input className="form-control"
@@ -74,11 +74,12 @@ var ShippingDetails = React.createClass({
 'contactNumber')}/>
                         </div>
                         <div className="form-group">
-                            <input className="form-control" type="text"
+                            <input className="form-control"
+                                   type="text"
                                    placeholder="Shipping Address"
-                                   value={this.state.shippingAddress}
+                                   value={this.state.shippingDetails}
                                    onChange={(event) => this.handleChange(event,
-'shippingAddress')} />
+'shippingDetails')} />
                         </div>
                         <div className="form-group">
                             <button type="submit"

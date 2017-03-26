@@ -3,6 +3,8 @@
  */
 import React from 'react';
 import BookList from './BookList';
+import ShippingDetails from './ShippingDetails';
+
 var BookStore = React.createClass({
     getInitialState(){
         return ({
@@ -33,19 +35,13 @@ var BookStore = React.createClass({
             case 1:
                 return <BookList updateFormData={this.updateFormData}/>;
             case 2:
-                return <ShippingDetails />;
+                return <ShippingDetails updateFormData={this.updateFormData}/>;
             case 3:
                 return <DeliveryDetails />;
         }
     }
 });
-var ShippingDetails = React.createClass({
-    render(){
-        return (
-            <h1>ShippingDetails</h1>
-        );
-    }
-});
+
 var DeliveryDetails = React.createClass({
     render(){
         return (
