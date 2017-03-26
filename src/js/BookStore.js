@@ -3,8 +3,6 @@
  */
 import React from 'react';
 import BookList from './BookList';
-import ShippingDetais from './ShippingDetails';
-
 var BookStore = React.createClass({
     getInitialState(){
         return ({
@@ -41,7 +39,13 @@ var BookStore = React.createClass({
         }
     }
 });
-
+var ShippingDetails = React.createClass({
+    render(){
+        return (
+            <h1>ShippingDetails</h1>
+        );
+    }
+});
 var DeliveryDetails = React.createClass({
     render(){
         return (
