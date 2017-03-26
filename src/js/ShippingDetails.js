@@ -49,7 +49,7 @@ var ShippingDetails = React.createClass({
         var newState = this.state;
         newState[attribute] = event.target.value;
         this.setState(newState);
-        console.log(this.state);
+        //console.log(this.state);
     },
     render(){
         var errorMessage = this._renderError();
