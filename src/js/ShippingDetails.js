@@ -40,10 +40,10 @@ var ShippingDetails = React.createClass({
             contactNumber:this.state.contactNumber,
             shippingDetails:this.state.shippingDetails
         }
-        if(this._validateInput()){
+        //if(this._validateInput()){
 
             this.props.updateFormData(formData);
-        }
+        //}
     },
     handleChange(event, attribute){
         var newState = this.state;

@@ -5,6 +5,7 @@ import React from 'react';
 import BookList from './BookList';
 import ShippingDetails from './ShippingDetails';
 import DeliveryDetails from './DeliveryDetails';
+import Confirmation from './Confirmation';
 
 var BookStore = React.createClass({
     getInitialState(){
@@ -29,7 +30,7 @@ var BookStore = React.createClass({
             currentStep:nextStep,
             formValues:formValues
         });
-        console.log(formData);
+        console.log(formValues);
     },
     render(){
         switch (this.state.currentStep){
@@ -39,6 +40,9 @@ var BookStore = React.createClass({
                 return <ShippingDetails updateFormData={this.updateFormData}/>;
             case 3:
                 return <DeliveryDetails  updateFormData={this.updateFormData}/>;
+            case 4:
+                return <Confirmation data={this.state.formValues}
+                                     updateFormData={this.updateFormData}/>;
         }
     }
 });

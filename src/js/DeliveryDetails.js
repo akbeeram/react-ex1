@@ -14,7 +14,7 @@ var DeliveryDetails = React.createClass({
             deliveryOption:event.target.value
         });
     },
-    handleSubmit(){
+    handleSubmit(event){
         event.preventDefault();
         this.props.updateFormData(this.state);
     },
@@ -42,7 +42,7 @@ var DeliveryDetails = React.createClass({
                                 Normal -- 3-4 days delivery
                             </label>
                         </div>
-                        <button className="btn btn-success">
+                        <button type="submit" className="btn btn-success">
                             Submit
                         </button>
                     </form>
