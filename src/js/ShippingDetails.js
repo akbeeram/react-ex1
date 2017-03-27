@@ -2,15 +2,23 @@
  * Created by beeraman on 3/25/2017.
  */
 import React from 'react';
+import SetIntervalMixin from './SetIntervalMixin';
+import CartTimeoutMixin from './CartTimeoutMixin';
 
 var ShippingDetails = React.createClass({
+    propTypes: {
+        alertCartTimeout: React.PropTypes.func.isRequired,
+        updateCartTimeout: React.PropTypes.func.isRequired,
+        cartTimeout: React.PropTypes.number.isRequired
+    },
     getInitialState(){
         return (
         {
             fullName:'',
             contactNumber:'',
             shippingDetails:'',
-            error:false
+            error:false,
+            cartTimeout: this.props.cartTimeout
         }
         );
     },
@@ -45,6 +53,7 @@ var ShippingDetails = React.createClass({
             this.props.updateFormData(formData);
         //}
     },
+    mixins: [SetIntervalMixin,CartTimeoutMixin],
     handleChange(event, attribute){
         var newState = this.state;
         newState[attribute] = event.target.value;
@@ -53,6 +62,8 @@ var ShippingDetails = React.createClass({
     },
     render(){
         var errorMessage = this._renderError();
+        var minutes = Math.floor(this.state.cartTimeout / 60);
+        var seconds = this.state.cartTimeout - minutes * 60;
         return (
             <div>
                 <h1>Enter you shipping details.</h1>
@@ -89,6 +100,10 @@ var ShippingDetails = React.createClass({
                             </button>
                         </div>
                     </form>
+                </div>
+                <div className='well'>
+                    You have {minutes} Minutes, {seconds} Seconds,
+                    before confirming order
                 </div>
             </div>
         );
